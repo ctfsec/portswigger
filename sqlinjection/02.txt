@@ -1,5 +1,6 @@
-[+]LAB
+[+]LAB-01
 SQL INJECTION IN LOGIN FUNCTIONALITY
+SQL injection vulnerability allowing login bypass
 
 [+]OBJECTIVE
 Perform a SQL injection attack that logs in to the application as the administrator user
