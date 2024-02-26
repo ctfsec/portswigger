@@ -26,5 +26,8 @@ Each walkthrough follows a structured format to ensure clarity and effectiveness
 1. Clone this repository to your local machine:
 
    ```bash
-   git clone https://github.com/ctfsec/portswigger/portswigger-web-security-walkthroughs.git
-
+   git clone https://github.com/ctfsec/portswigger.git
+   
+2. Change directory to desired vulnerability type eg:
+   ```bash
+   cd sqlinjection
